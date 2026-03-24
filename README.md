@@ -202,10 +202,6 @@ To use in a new project, copy `.cursor/rules/exchange-design-system.mdc` into yo
 
 ---
 
-## Prototypes Built With This System
 
-| Prototype | Repo | Description |
-|---|---|---|
-| Unified Campaign Management | [Trading-Arena-V2](https://github.com/ashwinirappa-wq/Trading-Arena-V2) | Campaign creation form + dashboard |
 
 *Add your prototype here when you publish it.*
