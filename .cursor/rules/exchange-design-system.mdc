@@ -10,6 +10,10 @@ alwaysApply: true
 - **XDS Exchange Design System:** https://www.figma.com/design/S5vzHnfEkTU1uETKnVOl7x/XDS---Exchange-Design-System
 - **Exchange Brand Playbook:** https://www.figma.com/slides/Oyb9M17fbUWZl4C7ZTO3jQ/Exchange-Brand-Playbook
 
+These tokens are extracted directly from the Figma file via REST API (last synced 2026-03-24).
+
+---
+
 ## Rule 1 — Always import the design system
 Every new prototype HTML file MUST import both CSS files at the top:
 
@@ -18,38 +22,127 @@ Every new prototype HTML file MUST import both CSS files at the top:
 <link rel="stylesheet" href="./design-system/components.css">
 ```
 
-If the prototype is in a subdirectory, adjust the path accordingly (e.g. `../design-system/tokens.css`).
+Adjust paths if in a subdirectory (e.g. `../design-system/`).
 
-## Rule 2 — Use design tokens for all visual properties
-Never hardcode colours, spacing, font sizes, border radii, or shadows. Always use `var(--xds-*)` tokens:
+---
+
+## Rule 2 — Use design tokens for ALL visual properties
+Never hardcode colours, spacing, font sizes, radii, or shadows. Use `var(--xds-*)`:
 
 ```css
 /* ✅ Correct */
-background: var(--xds-surface-elevated);
+background: var(--xds-bg-widgets);
 color: var(--xds-text-primary);
 padding: var(--xds-space-12);
 border-radius: var(--xds-radius-lg);
-font-size: var(--xds-font-size-base);
+border: 1px solid var(--xds-border);
 
 /* ❌ Never do this */
-background: #1A1A36;
+background: #141416;
 color: white;
 padding: 24px;
 ```
 
+---
+
 ## Rule 3 — Dark theme by default
-All Exchange prototypes use a dark theme. The page root must always be:
+ALL Exchange prototypes use the dark theme. The page root must always be:
 
 ```css
 body {
-  background: var(--xds-surface-page);   /* #0D0D1C */
-  color: var(--xds-text-primary);
+  background: var(--xds-bg-primary);   /* #09090A — Slate/950 */
+  color: var(--xds-text-primary);      /* #FFFFFF */
 }
 ```
 
-Never use light backgrounds on Exchange surfaces.
+---
 
-## Rule 4 — Use component classes for standard elements
+## Rule 4 — Core colour palette (use these exact values)
+
+### Brand Blue (colors/brand)
+| Token | Hex | Use |
+|---|---|---|
+| `--xds-color-blue-500` | `#026AB8` | Brand primary, CTAs |
+| `--xds-color-blue-400` | `#1F86D1` | Hover state |
+| `--xds-color-blue-300` | `#52AAEB` | Active / pressed |
+| `--xds-color-blue-200` | `#92D1FF` | Dark-mode text accent / brand highlight |
+| `--xds-color-blue-900` | `#0B1B26` | Accent bg on dark surface |
+
+### Slate / Neutral (colors/neutral)
+| Token | Hex | Use |
+|---|---|---|
+| `--xds-color-slate-950` | `#09090A` | Page background |
+| `--xds-color-slate-900` | `#141416` | Cards, menus, popovers |
+| `--xds-color-slate-850` | `#1B1B1F` | Muted sections |
+| `--xds-color-slate-800` | `#28292E` | Secondary surfaces, borders |
+| `--xds-color-slate-700` | `#464853` | Tooltips |
+| `--xds-color-slate-600` | `#5D606F` | Input borders |
+| `--xds-color-slate-500` | `#7B7D8E` | Muted text |
+| `--xds-color-slate-400` | `#9597A8` | Secondary text |
+| `--xds-color-slate-300` | `#B1B2BF` | Focus rings |
+
+### Green / Success (colors/green)
+| Token | Hex |
+|---|---|
+| `--xds-color-green-400` | `#24CC8B` |
+| `--xds-color-green-500` | `#19A46F` |
+| `--xds-text-success` | `#00DC82` |
+
+### Red / Destructive (colors/red)
+| Token | Hex |
+|---|---|
+| `--xds-color-red-400` | `#DB524D` |
+| `--xds-color-red-500` | `#D3413C` |
+| `--xds-text-destructive` | `#FE4A6B` |
+| `--xds-bg-destructive` | `#FC3055` |
+
+### Yellow / Warning (colors/yellow)
+| Token | Hex |
+|---|---|
+| `--xds-color-yellow-500` | `#F7B721` |
+| `--xds-color-yellow-600` | `#BE8004` |
+
+---
+
+## Rule 5 — Use semantic dark-theme tokens in layouts
+
+```css
+/* Surfaces */
+--xds-bg-primary       /* #09090A  page */
+--xds-bg-widgets       /* #141416  cards/panels */
+--xds-bg-muted         /* #1B1B1F  subtle */
+--xds-bg-secondary     /* #28292E  secondary */
+--xds-bg-tooltip       /* #464853  tooltips */
+
+/* Text */
+--xds-text-primary     /* #FFFFFF */
+--xds-text-secondary   /* #9597A8 */
+--xds-text-muted       /* #7B7D8E */
+--xds-text-accent      /* #92D1FF  blue highlight */
+--xds-text-success     /* #00DC82 */
+--xds-text-destructive /* #FE4A6B */
+--xds-text-warning     /* #F7B721 */
+
+/* Borders */
+--xds-border           /* #28292E  default */
+--xds-border-input     /* #5D606F  inputs */
+--xds-ring             /* #B1B2BF  focus rings */
+```
+
+---
+
+## Rule 6 — Typography
+Always use `'Inter Variable'` (with `'Inter'` as fallback). Apply via `var(--xds-font-family)`.
+
+Named type styles (use `font: var(--xds-type-X)` shorthand):
+- Headings: `--xds-type-heading1` (32px/52px), `--xds-type-heading2` (24px/40px), `--xds-type-heading3` (18px/28px)
+- Body: `--xds-type-body1` (14px/20px w:400), `--xds-type-body2` (12px/16px w:400)
+- Labels: `--xds-type-label1` (14px/20px w:500), `--xds-type-label2` (12px/16px w:500)
+- Links: `--xds-type-link1`, `--xds-type-link2` — same size as labels but use `--xds-text-accent` colour
+
+---
+
+## Rule 7 — Component classes
 Use `.xds-*` classes for all standard UI components before writing custom CSS:
 
 - Buttons: `.xds-btn .xds-btn-primary` / `.xds-btn-secondary` / `.xds-btn-ghost` / `.xds-btn-danger`
@@ -62,32 +155,26 @@ Use `.xds-*` classes for all standard UI components before writing custom CSS:
 - Info blocks: `.xds-info-block` (add `.success`, `.warning`, `.error`, `.purple` modifiers)
 - Modals: `.xds-modal-overlay`, `.xds-modal`
 
-## Rule 5 — Typography
-Always use Inter font. Apply it via `var(--xds-font-family-base)`.
-Use typographic utility classes for headings: `.xds-h1` through `.xds-h5`, `.xds-body`, `.xds-label`.
+---
 
-## Rule 6 — Spacing
-Use the spacing scale exclusively. Never invent arbitrary pixel values:
-`--xds-space-2 (4px)` → `--xds-space-4 (8px)` → `--xds-space-6 (12px)` → `--xds-space-8 (16px)` → `--xds-space-12 (24px)` → `--xds-space-16 (32px)`
-
-## Rule 7 — Colour meaning
-Respect semantic colour assignments:
-- `--xds-color-brand-blue` → primary interactive / CTA only
-- `--xds-color-brand-green` → positive values, gains, success states
-- `--xds-color-brand-red` → negative values, losses, errors, destructive actions
-- `--xds-color-brand-gold` → VIP, premium, rewards
-- `--xds-color-brand-cyan` → data charts, highlights, accents
-
-## Rule 8 — Status badges for campaign states
-Always use the XDS badge classes for campaign lifecycle states:
+## Rule 8 — Campaign status badges
+Always use XDS badge classes for campaign lifecycle states:
 - Draft → `.xds-badge .xds-badge-draft`
 - Scheduled → `.xds-badge .xds-badge-scheduled`
 - Active → `.xds-badge .xds-badge-active`
 - Ended → `.xds-badge .xds-badge-ended`
 - Deactivated → `.xds-badge .xds-badge-deactivated`
 
-## Rule 9 — Navigation
-All pages must have a top nav using `.xds-nav` with the Exchange brand icon and name.
+---
+
+## Rule 9 — Spacing
+Use the spacing scale exclusively — no arbitrary pixel values:
+
+`--xds-space-2` (4px) → `--xds-space-4` (8px) → `--xds-space-6` (12px) →
+`--xds-space-8` (16px) → `--xds-space-12` (24px) → `--xds-space-16` (32px)
+
+---
 
 ## Rule 10 — When the design system doesn't cover something
-If a component is not in the design system CSS files, check the Figma XDS file first before inventing a style. Build the new component using existing tokens. Never introduce new colour values, font sizes, or spacing values that don't come from the token scale.
+Check the Figma XDS file first. Build new components using existing tokens only.
+Never introduce new colour values, sizes, or spacing values outside the token scale.

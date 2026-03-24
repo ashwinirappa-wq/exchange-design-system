@@ -1,118 +1,224 @@
-/*
- * ═══════════════════════════════════════════════════════════════════
- *  EXCHANGE DESIGN SYSTEM — DESIGN TOKENS
- *  Source: XDS - Exchange Design System (Figma)
- *  https://www.figma.com/design/S5vzHnfEkTU1uETKnVOl7x/XDS---Exchange-Design-System
+/**
+ * EXCHANGE DESIGN SYSTEM — DESIGN TOKENS
+ * Source: XDS - Exchange Design System (Figma)
+ * https://www.figma.com/design/S5vzHnfEkTU1uETKnVOl7x/XDS---Exchange-Design-System
  *
- *  Brand Reference: Exchange Brand Playbook (Figma)
- *  https://www.figma.com/slides/Oyb9M17fbUWZl4C7ZTO3jQ/Exchange-Brand-Playbook
+ * ⚠️  These values are extracted directly from Figma via REST API.
+ *     Do NOT manually edit. Re-sync using the FIGMA-SYNC.md guide.
  *
- *  Usage: @import './design-system/tokens.css';
- *  Then reference any token as var(--xds-color-primary), etc.
- * ═══════════════════════════════════════════════════════════════════
+ * Last synced: 2026-03-24
  */
 
 :root {
 
-  /* ── COLOUR: Brand Core ────────────────────────────────────────── */
-  --xds-color-brand-blue:          #1C6EF2;   /* Primary CTA / Interactive */
-  --xds-color-brand-blue-light:    #4D90F5;
-  --xds-color-brand-blue-dark:     #1457C4;
-  --xds-color-brand-cyan:          #00D2FF;   /* Accent / Charts / Highlights */
-  --xds-color-brand-gold:          #F0B90B;   /* VIP / Premium / Rewards */
-  --xds-color-brand-green:         #0ECB81;   /* Positive / Gains / Success */
-  --xds-color-brand-red:           #F6465D;   /* Negative / Losses / Error */
+  /* ─────────────────────────────────────────────────────────────────────
+   * CORE COLOUR PALETTE — Blue / Brand
+   * Figma style group: colors/brand/*
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-color-blue-50:    #E3F1FA;
+  --xds-color-blue-100:   #CAE3F6;
+  --xds-color-blue-200:   #92D1FF;
+  --xds-color-blue-300:   #52AAEB;
+  --xds-color-blue-400:   #1F86D1;
+  --xds-color-blue-500:   #026AB8;   /* Brand primary */
+  --xds-color-blue-600:   #024D85;
+  --xds-color-blue-700:   #133F5E;
+  --xds-color-blue-800:   #112838;
+  --xds-color-blue-900:   #0B1B26;
+  --xds-color-blue-950:   #000D16;
 
-  /* ── COLOUR: Neutral Scale ─────────────────────────────────────── */
-  --xds-color-neutral-0:           #FFFFFF;
-  --xds-color-neutral-50:          #F5F5F5;
-  --xds-color-neutral-100:         #EBEBEB;
-  --xds-color-neutral-200:         #D4D4D4;
-  --xds-color-neutral-300:         #ADADAD;
-  --xds-color-neutral-400:         #858585;
-  --xds-color-neutral-500:         #5C5C5C;
-  --xds-color-neutral-600:         #3D3D3D;
-  --xds-color-neutral-700:         #2B2B2B;
-  --xds-color-neutral-800:         #1A1A2E;   /* Dark card bg */
-  --xds-color-neutral-900:         #0D0D1C;   /* Darkest bg / page bg */
-  --xds-color-neutral-1000:        #000000;
+  /* Alias */
+  --xds-color-brand:         var(--xds-color-blue-500);
+  --xds-color-brand-light:   var(--xds-color-blue-200);   /* Used in dark-mode highlights */
+  --xds-color-brand-dark:    var(--xds-color-blue-700);
 
-  /* ── COLOUR: Dark Theme Surface Tokens ─────────────────────────── */
-  --xds-surface-page:              #0D0D1C;   /* Page / root background */
-  --xds-surface-elevated:          #12122A;   /* Cards, panels */
-  --xds-surface-overlay:           #1A1A36;   /* Modals, dropdowns */
-  --xds-surface-border:            #2A2A4A;   /* Dividers, input borders */
-  --xds-surface-hover:             #1E1E3C;   /* Hover state on dark bg */
-  --xds-surface-selected:          rgba(28, 110, 242, 0.15); /* Selected row / tab */
+  /* ─────────────────────────────────────────────────────────────────────
+   * CORE COLOUR PALETTE — Green / Success
+   * Figma style group: colors/green/*
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-color-green-50:   #CEF3E5;
+  --xds-color-green-100:  #ADEBD3;
+  --xds-color-green-200:  #7CDEB9;
+  --xds-color-green-300:  #50D3A1;
+  --xds-color-green-400:  #24CC8B;
+  --xds-color-green-500:  #19A46F;   /* Success / positive bg */
+  --xds-color-green-600:  #028854;
+  --xds-color-green-700:  #007045;
+  --xds-color-green-800:  #004028;
+  --xds-color-green-900:  #002617;
+  --xds-color-green-950:  #000D08;
 
-  /* ── COLOUR: Text ──────────────────────────────────────────────── */
+  --xds-color-success:        var(--xds-color-green-400);  /* text-success (dark mode) */
+  --xds-color-success-bg:     var(--xds-color-green-500);  /* bg-success */
+  --xds-color-success-muted:  rgba(25, 164, 111, 0.16);    /* opacity-success */
+
+  /* ─────────────────────────────────────────────────────────────────────
+   * CORE COLOUR PALETTE — Red / Destructive
+   * Figma style group: colors/red/*
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-color-red-50:    #FFE7E5;
+  --xds-color-red-100:   #FFC5C2;
+  --xds-color-red-200:   #FF928F;
+  --xds-color-red-300:   #F16F6A;
+  --xds-color-red-400:   #DB524D;
+  --xds-color-red-500:   #D3413C;   /* Destructive bg */
+  --xds-color-red-600:   #BE231E;
+  --xds-color-red-700:   #901814;
+  --xds-color-red-800:   #62100E;
+  --xds-color-red-900:   #360908;
+  --xds-color-red-950:   #240705;
+
+  --xds-color-error:        #FE4A6B;                    /* text-destructive (dark mode) */
+  --xds-color-error-bg:     var(--xds-color-red-500);   /* bg-destructive */
+  --xds-color-error-muted:  rgba(211, 65, 60, 0.16);    /* opacity-destructive */
+
+  /* ─────────────────────────────────────────────────────────────────────
+   * CORE COLOUR PALETTE — Yellow / Warning
+   * Figma style group: colors/yellow/*
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-color-yellow-50:   #FEF7E8;
+  --xds-color-yellow-100:  #FEEFCD;
+  --xds-color-yellow-200:  #FEE8B3;
+  --xds-color-yellow-300:  #F5D589;
+  --xds-color-yellow-400:  #FBC850;
+  --xds-color-yellow-500:  #F7B721;   /* text-warning */
+  --xds-color-yellow-600:  #BE8004;   /* bg-warning */
+  --xds-color-yellow-700:  #A35C00;
+  --xds-color-yellow-800:  #5C390A;
+  --xds-color-yellow-900:  #2C1C07;
+  --xds-color-yellow-950:  #1C1103;
+
+  --xds-color-warning:        var(--xds-color-yellow-500);
+  --xds-color-warning-bg:     var(--xds-color-yellow-600);
+  --xds-color-warning-muted:  rgba(247, 183, 33, 0.16);
+
+  /* ─────────────────────────────────────────────────────────────────────
+   * CORE COLOUR PALETTE — Slate / Neutral
+   * Figma style group: colors/neutral/*
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-color-slate-50:   #F0F1F7;
+  --xds-color-slate-100:  #E3E4E8;
+  --xds-color-slate-200:  #D8D9DF;
+  --xds-color-slate-300:  #B1B2BF;
+  --xds-color-slate-400:  #9597A8;
+  --xds-color-slate-500:  #7B7D8E;
+  --xds-color-slate-600:  #5D606F;
+  --xds-color-slate-700:  #464853;
+  --xds-color-slate-800:  #28292E;
+  --xds-color-slate-850:  #1B1B1F;
+  --xds-color-slate-900:  #141416;
+  --xds-color-slate-950:  #09090A;
+
+  /* ─────────────────────────────────────────────────────────────────────
+   * BASE COLOURS
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-color-white:  #FFFFFF;
+  --xds-color-black:  #000000;
+
+  /* ─────────────────────────────────────────────────────────────────────
+   * DARK THEME SEMANTIC TOKENS
+   * Source: XDS colors component (12562:7475) — the canonical dark theme
+   * These are what you should use in dark-mode prototypes.
+   * ─────────────────────────────────────────────────────────────────── */
+
+  /* Backgrounds */
+  --xds-bg-primary:    #09090A;                     /* Page base (= Slate/950) */
+  --xds-bg-widgets:    #141416;                     /* Cards, panels (= Slate/900) */
+  --xds-bg-menu:       #141416;                     /* Menus, popovers */
+  --xds-bg-muted:      #1B1B1F;                     /* Subtle sections (= Slate/850) */
+  --xds-bg-secondary:  #28292E;                     /* Secondary surfaces (= Slate/800) */
+  --xds-bg-toggle:     #28292E;
+  --xds-bg-tooltip:    #464853;                     /* Tooltips (= Slate/700) */
+  --xds-bg-card:       rgba(123, 125, 142, 0.08);   /* Card overlay */
+  --xds-bg-input:      rgba(0, 0, 0, 0.04);         /* Input fields */
+  --xds-bg-brand:      #92D1FF;                     /* Brand bg (= Blue/200) */
+  --xds-bg-accent:     #0B1B26;                     /* Accent bg (= Blue/900) */
+  --xds-bg-success:    #09B870;                     /* Success bg */
+  --xds-bg-destructive:#FC3055;                     /* Destructive bg */
+  --xds-bg-warning:    #BE8004;                     /* Warning bg (= Yellow/600) */
+
+  /* Borders */
+  --xds-border:        #28292E;   /* Default border (= Slate/800) */
+  --xds-border-input:  #5D606F;   /* Input border (= Slate/600) */
+  --xds-ring:          #B1B2BF;   /* Focus ring (= Slate/300) */
+
+  /* Text */
   --xds-text-primary:              #FFFFFF;
-  --xds-text-secondary:            #B0B0C8;
-  --xds-text-tertiary:             #6E6E8A;
-  --xds-text-disabled:             #3D3D5A;
-  --xds-text-inverse:              #0D0D1C;
-  --xds-text-link:                 #4D90F5;
-  --xds-text-positive:             #0ECB81;
-  --xds-text-negative:             #F6465D;
-  --xds-text-warning:              #F0B90B;
+  --xds-text-secondary:            #9597A8;   /* = Slate/400 */
+  --xds-text-muted:                #7B7D8E;   /* = Slate/500 */
+  --xds-text-reversed:             #09090A;   /* Dark text on light bg */
+  --xds-text-white:                #FFFFFF;
+  --xds-text-brand:                #09090A;   /* Text on brand-coloured bg */
+  --xds-text-accent:               #92D1FF;   /* Accent text (= Blue/200) */
+  --xds-text-success:              #00DC82;   /* Success text */
+  --xds-text-success-reversed:     #00DC82;
+  --xds-text-destructive:          #FE4A6B;   /* Error / negative text */
+  --xds-text-destructive-reversed: #FE4A6B;
+  --xds-text-warning:              #F7B721;   /* = Yellow/500 */
 
-  /* ── COLOUR: Semantic / Status ─────────────────────────────────── */
-  --xds-color-success:             #0ECB81;
-  --xds-color-success-bg:          rgba(14, 203, 129, 0.12);
-  --xds-color-success-border:      rgba(14, 203, 129, 0.3);
+  /* Opacity overlays (for tinted backgrounds / chips / tags) */
+  --xds-opacity-neutral:     rgba(123, 125, 142, 0.16);
+  --xds-opacity-accent:      rgba(146, 209, 255, 0.16);
+  --xds-opacity-success:     rgba(9,   184, 112, 0.16);
+  --xds-opacity-destructive: rgba(252,  48,  85, 0.16);
+  --xds-opacity-warning:     rgba(247, 183,  33, 0.16);
 
-  --xds-color-error:               #F6465D;
-  --xds-color-error-bg:            rgba(246, 70, 93, 0.12);
-  --xds-color-error-border:        rgba(246, 70, 93, 0.3);
+  /* ─────────────────────────────────────────────────────────────────────
+   * TYPOGRAPHY
+   * Font family: Inter Variable (primary), Inter (fallback)
+   * Source: XDS typography page (30:20737)
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-font-family:       'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --xds-font-family-mono:  'SF Mono', 'Fira Code', 'Consolas', monospace;
 
-  --xds-color-warning:             #F0B90B;
-  --xds-color-warning-bg:          rgba(240, 185, 11, 0.12);
-  --xds-color-warning-border:      rgba(240, 185, 11, 0.3);
+  /* Font weight */
+  --xds-font-weight-regular:  400;
+  --xds-font-weight-medium:   500;
+  --xds-font-weight-semibold: 600;
+  --xds-font-weight-bold:     700;
 
-  --xds-color-info:                #1C6EF2;
-  --xds-color-info-bg:             rgba(28, 110, 242, 0.12);
-  --xds-color-info-border:         rgba(28, 110, 242, 0.3);
+  /* Type scale — sizes */
+  --xds-font-size-xs:    10px;   /* Body 3 */
+  --xds-font-size-sm:    12px;   /* Body 2 / Label 2 */
+  --xds-font-size-base:  14px;   /* Body 1 / Label 1 */
+  --xds-font-size-md:    16px;
+  --xds-font-size-lg:    18px;   /* Heading 3 */
+  --xds-font-size-xl:    20px;
+  --xds-font-size-2xl:   24px;   /* Heading 2 */
+  --xds-font-size-3xl:   28px;
+  --xds-font-size-4xl:   32px;   /* Heading 1 */
+  --xds-font-size-5xl:   40px;
+  --xds-font-size-6xl:   48px;
 
-  /* ── TYPOGRAPHY: Font Family ───────────────────────────────────── */
-  --xds-font-family-base:          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --xds-font-family-mono:          'SF Mono', 'Consolas', 'Fira Code', monospace;
-  --xds-font-family-display:       'Inter', sans-serif; /* Headers / Hero */
+  /* Line heights — matching Figma */
+  --xds-line-height-xs:    14px;   /* Body 3 */
+  --xds-line-height-sm:    16px;   /* Body 2 */
+  --xds-line-height-base:  20px;   /* Body 1 */
+  --xds-line-height-lg:    28px;   /* Heading 3 */
+  --xds-line-height-xl:    40px;   /* Heading 2 */
+  --xds-line-height-2xl:   52px;   /* Heading 1 */
+  --xds-line-height-paragraph: 22px; /* Body Paragraph */
 
-  /* ── TYPOGRAPHY: Font Weight ───────────────────────────────────── */
-  --xds-font-weight-regular:       400;
-  --xds-font-weight-medium:        500;
-  --xds-font-weight-semibold:      600;
-  --xds-font-weight-bold:          700;
-  --xds-font-weight-extrabold:     800;
+  /* Named type styles (matching Figma style names exactly) */
+  --xds-type-heading1:    400 var(--xds-font-size-4xl)/var(--xds-line-height-2xl) var(--xds-font-family);
+  --xds-type-heading2:    400 var(--xds-font-size-2xl)/var(--xds-line-height-xl)  var(--xds-font-family);
+  --xds-type-heading3:    400 var(--xds-font-size-lg)/28px   var(--xds-font-family);
+  --xds-type-body1:       400 var(--xds-font-size-base)/var(--xds-line-height-base) var(--xds-font-family);
+  --xds-type-body2:       400 var(--xds-font-size-sm)/var(--xds-line-height-sm)   var(--xds-font-family);
+  --xds-type-body3:       400 var(--xds-font-size-xs)/var(--xds-line-height-xs)   var(--xds-font-family);
+  --xds-type-label1:      500 var(--xds-font-size-base)/var(--xds-line-height-base) var(--xds-font-family);
+  --xds-type-label2:      500 var(--xds-font-size-sm)/var(--xds-line-height-sm)   var(--xds-font-family);
+  --xds-type-link1:       500 var(--xds-font-size-base)/var(--xds-line-height-base) var(--xds-font-family);
+  --xds-type-link2:       500 var(--xds-font-size-sm)/var(--xds-line-height-sm)   var(--xds-font-family);
+  --xds-type-body-para1:  400 var(--xds-font-size-base)/var(--xds-line-height-paragraph) var(--xds-font-family);
+  --xds-type-body-para2:  400 var(--xds-font-size-sm)/20px  var(--xds-font-family);
+  --xds-type-mono1:       400 var(--xds-font-size-base)/var(--xds-line-height-base) var(--xds-font-family-mono);
+  --xds-type-mono2:       400 var(--xds-font-size-sm)/var(--xds-line-height-sm)   var(--xds-font-family-mono);
+  --xds-type-mono3:       400 var(--xds-font-size-xs)/var(--xds-line-height-xs)   var(--xds-font-family-mono);
 
-  /* ── TYPOGRAPHY: Font Size Scale ───────────────────────────────── */
-  --xds-font-size-xs:              11px;
-  --xds-font-size-sm:              12px;
-  --xds-font-size-base:            14px;
-  --xds-font-size-md:              16px;
-  --xds-font-size-lg:              18px;
-  --xds-font-size-xl:              20px;
-  --xds-font-size-2xl:             24px;
-  --xds-font-size-3xl:             28px;
-  --xds-font-size-4xl:             32px;
-  --xds-font-size-5xl:             40px;
-  --xds-font-size-6xl:             48px;
-
-  /* ── TYPOGRAPHY: Line Height ───────────────────────────────────── */
-  --xds-line-height-tight:         1.2;
-  --xds-line-height-snug:          1.4;
-  --xds-line-height-base:          1.5;
-  --xds-line-height-relaxed:       1.6;
-  --xds-line-height-loose:         1.75;
-
-  /* ── TYPOGRAPHY: Letter Spacing ────────────────────────────────── */
-  --xds-letter-spacing-tight:      -0.02em;
-  --xds-letter-spacing-normal:     0em;
-  --xds-letter-spacing-wide:       0.03em;
-  --xds-letter-spacing-wider:      0.06em;
-  --xds-letter-spacing-caps:       0.08em;   /* Labels / badges in uppercase */
-
-  /* ── SPACING SCALE ─────────────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────────────
+   * SPACING SCALE
+   * ─────────────────────────────────────────────────────────────────── */
   --xds-space-0:    0px;
   --xds-space-1:    2px;
   --xds-space-2:    4px;
@@ -134,33 +240,39 @@
   --xds-space-40:   80px;
   --xds-space-48:   96px;
 
-  /* ── BORDER RADIUS ─────────────────────────────────────────────── */
-  --xds-radius-none:    0px;
-  --xds-radius-xs:      2px;
-  --xds-radius-sm:      4px;
-  --xds-radius-md:      6px;
-  --xds-radius-lg:      8px;
-  --xds-radius-xl:      12px;
-  --xds-radius-2xl:     16px;
-  --xds-radius-3xl:     24px;
-  --xds-radius-full:    9999px;  /* Pill / badge */
+  /* ─────────────────────────────────────────────────────────────────────
+   * BORDER RADIUS
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-radius-none:  0px;
+  --xds-radius-xs:    2px;
+  --xds-radius-sm:    4px;
+  --xds-radius-md:    6px;
+  --xds-radius-lg:    8px;
+  --xds-radius-xl:    12px;
+  --xds-radius-2xl:   16px;
+  --xds-radius-3xl:   24px;
+  --xds-radius-full:  9999px;
 
-  /* ── BORDER WIDTH ──────────────────────────────────────────────── */
-  --xds-border-width-thin:    1px;
-  --xds-border-width-base:    1.5px;
-  --xds-border-width-thick:   2px;
+  /* ─────────────────────────────────────────────────────────────────────
+   * ELEVATION / SHADOWS
+   * Source: XDS effect styles — popover-dark, menu-dark, bottom-sheet-dark
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-shadow-xs:            0 1px 3px rgba(0, 0, 0, 0.40);
+  --xds-shadow-sm:            0 2px 8px rgba(0, 0, 0, 0.50);
+  --xds-shadow-md:            0 4px 16px rgba(0, 0, 0, 0.60);   /* popover-dark */
+  --xds-shadow-lg:            0 8px 32px rgba(0, 0, 0, 0.70);   /* menu-dark */
+  --xds-shadow-xl:            0 16px 48px rgba(0, 0, 0, 0.80);  /* bottom-sheet-dark */
 
-  /* ── SHADOW / ELEVATION ────────────────────────────────────────── */
-  --xds-shadow-xs:    0 1px 3px rgba(0,0,0,0.3);
-  --xds-shadow-sm:    0 2px 8px rgba(0,0,0,0.4);
-  --xds-shadow-md:    0 4px 16px rgba(0,0,0,0.5);
-  --xds-shadow-lg:    0 8px 32px rgba(0,0,0,0.6);
-  --xds-shadow-xl:    0 16px 48px rgba(0,0,0,0.7);
-  --xds-shadow-glow-blue:   0 0 20px rgba(28, 110, 242, 0.3);
-  --xds-shadow-glow-green:  0 0 20px rgba(14, 203, 129, 0.3);
-  --xds-shadow-glow-gold:   0 0 20px rgba(240, 185, 11, 0.3);
+  /* Glow shadows for interactive states */
+  --xds-shadow-glow-blue:     0 0 20px rgba(2,   106, 184, 0.35);
+  --xds-shadow-glow-green:    0 0 20px rgba(9,   184, 112, 0.35);
+  --xds-shadow-glow-red:      0 0 20px rgba(252,  48,  85, 0.35);
+  --xds-shadow-glow-yellow:   0 0 20px rgba(247, 183,  33, 0.35);
 
-  /* ── COMPONENT TOKENS: Button ──────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────────────
+   * COMPONENT TOKENS — Buttons
+   * Source: ✦ buttons page (9:27981)
+   * ─────────────────────────────────────────────────────────────────── */
   --xds-btn-height-sm:      32px;
   --xds-btn-height-md:      40px;
   --xds-btn-height-lg:      48px;
@@ -171,70 +283,95 @@
   --xds-btn-font-size:      var(--xds-font-size-base);
   --xds-btn-font-weight:    var(--xds-font-weight-semibold);
 
-  /* ── COMPONENT TOKENS: Input / Form ───────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────────────
+   * COMPONENT TOKENS — Inputs / Forms
+   * Source: ✦ text input page (14:1437)
+   * ─────────────────────────────────────────────────────────────────── */
   --xds-input-height:       44px;
   --xds-input-height-sm:    36px;
-  --xds-input-bg:           #1A1A36;
-  --xds-input-border:       var(--xds-surface-border);
-  --xds-input-border-focus: var(--xds-color-brand-blue);
+  --xds-input-bg:           var(--xds-bg-input);
+  --xds-input-border:       var(--xds-border-input);
+  --xds-input-border-focus: var(--xds-color-brand);
   --xds-input-radius:       var(--xds-radius-sm);
   --xds-input-padding:      0 var(--xds-space-8);
-  --xds-input-font-size:    var(--xds-font-size-base);
+  --xds-input-font:         var(--xds-type-body1);
   --xds-input-color:        var(--xds-text-primary);
-  --xds-input-placeholder:  var(--xds-text-tertiary);
+  --xds-input-placeholder:  var(--xds-text-muted);
 
-  /* ── COMPONENT TOKENS: Card ────────────────────────────────────── */
-  --xds-card-bg:            var(--xds-surface-elevated);
-  --xds-card-border:        var(--xds-surface-border);
-  --xds-card-radius:        var(--xds-radius-xl);
-  --xds-card-padding:       var(--xds-space-16);
-  --xds-card-shadow:        var(--xds-shadow-md);
+  /* ─────────────────────────────────────────────────────────────────────
+   * COMPONENT TOKENS — Cards / Panels
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-card-bg:       var(--xds-bg-widgets);
+  --xds-card-border:   var(--xds-border);
+  --xds-card-radius:   var(--xds-radius-xl);
+  --xds-card-padding:  var(--xds-space-16);
+  --xds-card-shadow:   var(--xds-shadow-md);
 
-  /* ── COMPONENT TOKENS: Badge / Status ──────────────────────────── */
-  --xds-badge-radius:       var(--xds-radius-full);
-  --xds-badge-padding:      2px 10px;
-  --xds-badge-font-size:    var(--xds-font-size-xs);
-  --xds-badge-font-weight:  var(--xds-font-weight-bold);
-  --xds-badge-letter-spacing: var(--xds-letter-spacing-caps);
+  /* ─────────────────────────────────────────────────────────────────────
+   * COMPONENT TOKENS — Badges / Status Pills
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-badge-radius:          var(--xds-radius-full);
+  --xds-badge-padding:         2px 10px;
+  --xds-badge-font-size:       var(--xds-font-size-xs);
+  --xds-badge-font-weight:     var(--xds-font-weight-semibold);
 
-  /* ── COMPONENT TOKENS: Table ───────────────────────────────────── */
-  --xds-table-header-bg:    rgba(255,255,255,0.04);
-  --xds-table-row-hover:    rgba(255,255,255,0.04);
-  --xds-table-border:       var(--xds-surface-border);
-  --xds-table-cell-height:  48px;
-  --xds-table-header-height:40px;
+  /* Campaign lifecycle badge colours */
+  --xds-badge-draft-bg:        var(--xds-opacity-neutral);
+  --xds-badge-draft-color:     var(--xds-text-secondary);
+  --xds-badge-scheduled-bg:    var(--xds-opacity-accent);
+  --xds-badge-scheduled-color: var(--xds-text-accent);
+  --xds-badge-active-bg:       var(--xds-opacity-success);
+  --xds-badge-active-color:    var(--xds-text-success);
+  --xds-badge-ended-bg:        var(--xds-opacity-warning);
+  --xds-badge-ended-color:     var(--xds-text-warning);
+  --xds-badge-deactivated-bg:  var(--xds-opacity-destructive);
+  --xds-badge-deactivated-color: var(--xds-text-destructive);
 
-  /* ── COMPONENT TOKENS: Navigation ──────────────────────────────── */
-  --xds-nav-height:         56px;
-  --xds-nav-bg:             var(--xds-surface-page);
-  --xds-nav-border:         var(--xds-surface-border);
+  /* ─────────────────────────────────────────────────────────────────────
+   * COMPONENT TOKENS — Tables
+   * Source: ✦ table page (13:1427)
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-table-header-bg:     rgba(255, 255, 255, 0.04);
+  --xds-table-row-hover:     rgba(255, 255, 255, 0.04);
+  --xds-table-border:        var(--xds-border);
+  --xds-table-cell-height:   48px;
+  --xds-table-header-height: 40px;
 
-  /* ── COMPONENT TOKENS: Tabs ────────────────────────────────────── */
-  --xds-tab-active-color:      var(--xds-color-brand-blue);
-  --xds-tab-active-border:     var(--xds-color-brand-blue);
-  --xds-tab-inactive-color:    var(--xds-text-secondary);
-  --xds-tab-border-width:      2px;
+  /* ─────────────────────────────────────────────────────────────────────
+   * COMPONENT TOKENS — Navigation
+   * Source: ✦ web - navigation page (0:1)
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-nav-height:  56px;
+  --xds-nav-bg:      var(--xds-bg-primary);
+  --xds-nav-border:  var(--xds-border);
 
-  /* ── ANIMATION / TRANSITION ────────────────────────────────────── */
+  /* ─────────────────────────────────────────────────────────────────────
+   * COMPONENT TOKENS — Tabs
+   * Source: ✦ tabs page (14:1459)
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-tab-active-color:    var(--xds-text-primary);
+  --xds-tab-active-border:   var(--xds-color-brand);
+  --xds-tab-inactive-color:  var(--xds-text-secondary);
+  --xds-tab-border-width:    2px;
+
+  /* ─────────────────────────────────────────────────────────────────────
+   * ANIMATION / TRANSITIONS
+   * ─────────────────────────────────────────────────────────────────── */
   --xds-transition-fast:    all 0.1s ease;
   --xds-transition-base:    all 0.2s ease;
   --xds-transition-slow:    all 0.3s ease;
   --xds-transition-bounce:  all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* ── Z-INDEX SCALE ─────────────────────────────────────────────── */
-  --xds-z-base:       0;
-  --xds-z-raised:     10;
-  --xds-z-dropdown:   100;
-  --xds-z-sticky:     200;
-  --xds-z-overlay:    300;
-  --xds-z-modal:      400;
-  --xds-z-toast:      500;
-  --xds-z-tooltip:    600;
+  /* ─────────────────────────────────────────────────────────────────────
+   * Z-INDEX SCALE
+   * ─────────────────────────────────────────────────────────────────── */
+  --xds-z-base:     0;
+  --xds-z-raised:   10;
+  --xds-z-dropdown: 100;
+  --xds-z-sticky:   200;
+  --xds-z-overlay:  300;
+  --xds-z-modal:    400;
+  --xds-z-toast:    500;
+  --xds-z-tooltip:  600;
 
-  /* ── BREAKPOINTS (reference only — use in media queries) ────────── */
-  /* --xds-bp-sm:  480px  */
-  /* --xds-bp-md:  768px  */
-  /* --xds-bp-lg:  1024px */
-  /* --xds-bp-xl:  1280px */
-  /* --xds-bp-2xl: 1440px */
 }
