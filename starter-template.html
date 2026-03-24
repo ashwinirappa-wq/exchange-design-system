@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype — Exchange</title>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════════
+    EXCHANGE DESIGN SYSTEM — STARTER TEMPLATE
+    ═══════════════════════════════════════════════════════════════════
+    Figma Sources:
+      XDS Design System: https://www.figma.com/design/S5vzHnfEkTU1uETKnVOl7x/XDS---Exchange-Design-System
+      Brand Playbook:    https://www.figma.com/slides/Oyb9M17fbUWZl4C7ZTO3jQ/Exchange-Brand-Playbook
+
+    Instructions:
+      1. Update the <title> above
+      2. Adjust the import paths below to point to this repo
+      3. Build your prototype inside <main class="page-body">
+      4. Never hardcode colours, spacing, or font sizes — use var(--xds-*)
+    ═══════════════════════════════════════════════════════════════════
+  -->
+
+  <!-- Design System — adjust path if this file is in a subdirectory -->
+  <link rel="stylesheet" href="./tokens.css">
+  <link rel="stylesheet" href="./components.css">
+
+  <!-- Google Fonts: Inter (matches Figma XDS type spec) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Page layout ─────────────────────────────────────────────── */
+    .page-body {
+      padding: var(--xds-space-16) var(--xds-space-20);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-title-row {
+      margin-bottom: var(--xds-space-16);
+    }
+
+    /* ── Add your prototype-specific styles below ────────────────── */
+    /* Always use var(--xds-*) tokens — never hardcode values         */
+
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ───────────────────────────────────────────────── -->
+  <nav class="xds-nav">
+    <div class="xds-nav-brand">
+      <div class="xds-nav-brand-icon">⬡</div>
+      EXCHANGE
+      <span style="width:1px;height:18px;background:var(--xds-surface-border);margin:0 8px;"></span>
+      <span style="font-size:var(--xds-font-size-sm);font-weight:var(--xds-font-weight-regular);color:var(--xds-text-tertiary);">
+        <!-- Update this subtitle per prototype -->
+        Prototype Title
+      </span>
+    </div>
+    <div style="display:flex;gap:var(--xds-space-8);align-items:center;">
+      <!-- Nav actions go here -->
+    </div>
+  </nav>
+
+  <!-- ── Page Body ────────────────────────────────────────────────── -->
+  <main class="page-body">
+
+    <!-- Page title -->
+    <div class="page-title-row">
+      <h1 class="xds-h2" style="margin:0 0 var(--xds-space-2);">Page Title</h1>
+      <p class="xds-body xds-text-secondary" style="margin:0;">Supporting description for this page.</p>
+    </div>
+
+    <!-- ── Example: Card ──────────────────────────────────────────── -->
+    <div class="xds-card" style="margin-bottom:var(--xds-space-12);">
+      <h3 class="xds-card-title">Card Title</h3>
+      <p class="xds-body xds-text-secondary">Card content goes here.</p>
+
+      <!-- Buttons -->
+      <div style="display:flex;gap:var(--xds-space-6);margin-top:var(--xds-space-12);">
+        <button class="xds-btn xds-btn-primary">Primary Action</button>
+        <button class="xds-btn xds-btn-secondary">Secondary</button>
+        <button class="xds-btn xds-btn-ghost">Cancel</button>
+      </div>
+    </div>
+
+    <!-- ── Example: Status Badges ─────────────────────────────────── -->
+    <div class="xds-card" style="margin-bottom:var(--xds-space-12);">
+      <h3 class="xds-card-title">Status Badges</h3>
+      <div style="display:flex;gap:var(--xds-space-6);flex-wrap:wrap;">
+        <span class="xds-badge xds-badge-active">Active</span>
+        <span class="xds-badge xds-badge-scheduled">Scheduled</span>
+        <span class="xds-badge xds-badge-draft">Draft</span>
+        <span class="xds-badge xds-badge-ended">Ended</span>
+        <span class="xds-badge xds-badge-deactivated">Deactivated</span>
+      </div>
+    </div>
+
+    <!-- ── Example: Form Fields ───────────────────────────────────── -->
+    <div class="xds-card" style="margin-bottom:var(--xds-space-12);">
+      <h3 class="xds-card-title">Form Fields</h3>
+      <div class="xds-grid-2">
+        <div>
+          <label class="xds-label-field">Text Input <span class="xds-required">*</span></label>
+          <input class="xds-input" type="text" placeholder="Enter value">
+        </div>
+        <div>
+          <label class="xds-label-field">Dropdown</label>
+          <select class="xds-select">
+            <option value="">Select an option</option>
+            <option>Option A</option>
+            <option>Option B</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:var(--xds-space-10);">
+        <label class="xds-label-field">Textarea</label>
+        <textarea class="xds-textarea" rows="3" placeholder="Enter description..."></textarea>
+      </div>
+    </div>
+
+    <!-- ── Example: Info Blocks ───────────────────────────────────── -->
+    <div class="xds-card" style="margin-bottom:var(--xds-space-12);">
+      <h3 class="xds-card-title">Info Blocks</h3>
+      <div style="display:flex;flex-direction:column;gap:var(--xds-space-6);">
+        <div class="xds-info-block">Blue info — configuration note or guidance</div>
+        <div class="xds-info-block success">Green success — action completed</div>
+        <div class="xds-info-block warning">Amber warning — review before proceeding</div>
+        <div class="xds-info-block error">Red error — required field or validation failure</div>
+        <div class="xds-info-block purple">Purple note — special rule or constraint</div>
+      </div>
+    </div>
+
+    <!-- ── Example: Table ─────────────────────────────────────────── -->
+    <div class="xds-card">
+      <h3 class="xds-card-title">Data Table</h3>
+      <div class="xds-table-wrap">
+        <table class="xds-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="xds-body" style="font-weight:var(--xds-font-weight-semibold);">Example Campaign</td>
+              <td><span class="xds-badge xds-badge-active">Active</span></td>
+              <td class="xds-body xds-text-secondary">17 Feb 2026</td>
+              <td>
+                <div style="display:flex;gap:var(--xds-space-4);">
+                  <button class="xds-btn xds-btn-ghost xds-btn-sm">Edit</button>
+                  <button class="xds-btn xds-btn-ghost xds-btn-sm">View</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="xds-body" style="font-weight:var(--xds-font-weight-semibold);">Draft Campaign</td>
+              <td><span class="xds-badge xds-badge-draft">Draft</span></td>
+              <td class="xds-body xds-text-secondary">15 Feb 2026</td>
+              <td>
+                <div style="display:flex;gap:var(--xds-space-4);">
+                  <button class="xds-btn xds-btn-ghost xds-btn-sm">Edit</button>
+                  <button class="xds-btn xds-btn-ghost xds-btn-sm">View</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
